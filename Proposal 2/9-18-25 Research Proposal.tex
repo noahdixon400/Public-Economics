@@ -229,7 +229,7 @@ Independent of this argument, when someone is given a speeding ticket, the effec
 \noindent\textbf{Empirical Design:} 
 The towing data comes from the NYC Department of Finance's Scofflaw Enforcement Program. This dataset contains license plate number, issuing state, plate type, judgment amount, boot date, tow indicator and date, redemption indicator and date, total amount owed, total amount collected, auction indicator and date, and auction amount. \textbf{One issue is that towed vehicles are not linked to a zip code. Another issue is that no data exists (for public access) before 2012.} To obtain this data, I would need to file a FOIL request through the DOF. More specifically, I would request two things: data before 2012 and zip codes corresponding with the vehicles towed. The latter half can be satisfied, even with annual, aggregated data (which may be the only data I can access). The former half is not necessary (but will help strengthen the causal argument).
 
-Empirically -- and more generally, the strategy is to leverage a DiD according to \emph{each} of these policy variations (i.e., the 2010 and 2014 enforcement). The trickiest part is constructing the treated and control groups. One idea is to estimate the likelihood of being towed to each zip code -- according to road ruggedness, population condensation, traffic density, \emph{exposure} to snow routes, complaints (this one may need to be dealt with another way) etc. -- and then use \emph{gradations} of exposure as treatment intensity (similar to the \enquote{potato} paper). 
+Empirically -- and more generally, the strategy is to leverage a DiD according to \emph{each} of these policy variations (i.e., the 2010 and 2014 enforcement). The trickiest part is constructing the treated and control groups. One idea is to estimate the likelihood of being towed to each zip code -- according to road ruggedness, population condensation, traffic density, \emph{exposure} to snow routes, location to police station, location to tow lot -- and then use \emph{gradations} of exposure as treatment intensity (similar to the \enquote{potato} paper). 
 
 The biggest issue, with using income as the dependent variable, is threefold: (i) these shocks may not be large enough to move income, (ii) there is lots of noise within each zip code, and (iii) there are endogeneity concerns (i.e., many potential violations against the parallel trends assumptions). To hedge against this concern, the main specification -- which leverages a DiD approach with heterogenous treatment effeccts moderated by baseline income -- is,
 \begin{align}
@@ -239,7 +239,9 @@ Y_{it} = \ & \alpha
 & + \gamma_2(\text{Median Income}_i \cdot \text{Post Policy}_t) \nonumber \\
 & + \mu_i + \lambda_t + \varepsilon_{it},
 \end{align}
-where $i \in \{\text{Zip Code}\}$, $t \in \{0,1\}$, $Y_{it}$ represents the tow rate per capita, boot rate per capita -- or both -- $\text{Median Income}_i$ represents the median income per zip code \emph{at the inception of the policy}, $\mu_i$ represents ZIP code FE, and $\lambda_t$ represents time FE (Athey \& Imbens, 2006) \cite{Athey}. \textbf{Note that income is serving as a moderator here -- not the treatment or control.} The obvious question is whether the \emph{parallel trends} assumption holds. Formally, we can represent this as,
+where $i \in \{\text{Zip Code}\}$, $t \in \{0,1\}$, $Y_{it}$ represents the tow rate per capita, boot rate per capita -- or both -- $\text{Median Income}_i$ represents the median income per zip code \emph{at the inception of the policy}, $\mu_i$ represents ZIP code FE, and $\lambda_t$ represents time FE (Athey \& Imbens, 2006) \cite{Athey}. \textbf{Note that income is serving as a moderator here -- not the treatment or control.}
+
+ The obvious question is whether the \emph{parallel trends} assumption holds. Formally, we can represent this as,
 \begin{align}
 & \mathbb{E}[Y_{i1}^0-Y_{i0}^0 \mid \text{Tow Exposure} = x \nonumber \\
 & \quad - \mathbb{E}[Y_{i1}^0-Y_{i0}^0 \mid \text{Tow Exposure} = x'] \nonumber \\
@@ -289,7 +291,7 @@ There are additional concerns that warrant clarification:
 \noindent\rule{\linewidth}{0.4pt}
 
 \noindent\textbf{Theoretical Impetus:} 
-
+It seems probable that there exists some form of structural equation mapping this out. This may help strengthen the causal argument. 
 
 
 \newpage
