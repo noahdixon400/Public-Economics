@@ -1,0 +1,300 @@
+\documentclass[12pt,letterpaper,doublespace, oneside]{article}
+%\documentclass[12pt]{extarticle}  % Use 14pt globally
+
+
+
+
+%Here are the various packages I use. Some may be duplicated. 
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\usepackage{amsmath,amsthm,amssymb} % math package
+\usepackage{mathtools} %to beef up the above package, more math!
+\usepackage{tikz} %for drawing 
+\usepackage{graphicx} %for including graphics
+\usepackage{fancybox} %for some nice formatting options
+\usepackage[hidelinks]{hyperref} %for referencing
+%hidelinks removes red and green boxes
+\usepackage{varwidth} %for some nice width control
+\usepackage{mdframed} %for framed environments
+\usepackage{mathrsfs} %more math fonts
+\usepackage{xcolor} %color package
+\usepackage{setspace}
+\usepackage{multirow,array}
+\usepackage{caption}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage[numbers, square]{natbib}
+\usepackage{titlecaps}
+%\usepackage[paper=a3paper]{geometry}
+\usepackage{tabularx}
+\usepackage{cleveref}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{xstring}
+\usepackage{nameref}
+\usepackage{amsthm}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{booktabs} %include in preamble
+\usepackage{csquotes}
+%Here are the various packages I use. Some may be duplicated. 
+
+
+
+
+
+
+%Define colors and symbols%
+%\usepackage[notes,backend=biber]{biblatex-chicago}
+%\usepackage[authordate-trad,backend=biber]{biblatex-chicago}
+\MakeOuterQuote{"}
+%some colours
+\definecolor{firebrick}{RGB}{178,34,34}
+\definecolor{teal}{RGB}{0,128,128}
+\definecolor{indigo}{RGB}{75,0,130}
+\definecolor{darkblue}{rgb}{0.0,0.0,.7}
+\definecolor{darkred}{rgb}{0.6,0.0,0.0}
+\definecolor{lightgrey}{RGB}{220, 220, 220}
+\definecolor{darkgrey}{HTML}{878787}
+\definecolor{forest}{HTML}{004a2f}
+\definecolor{dirt}{HTML}{5d4728}
+\definecolor{newblue}{HTML}{004fd9}
+\definecolor{paleyellow}{HTML}{FFFFD3}
+\renewcommand{\thesection}{}  % Remove numbering from \section
+\renewcommand{\thesubsection}{}  % Remove numbering from \subsection
+\renewcommand{\thesubsubsection}{} 
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\SetMathAlphabet{\mathbx}{bold}{U}{BOONDOX-ds}{b}{n}
+\DeclareMathAlphabet{\mathbbx} {U}{BOONDOX-ds}{b}{n}
+\doublespacing
+%\usepackageA{hyphenat}
+\DeclareCaptionLabelFormat{blank}{}
+\let\cleardoublepage\relax
+%Define colors and symbols%
+
+
+
+
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{\fill}
+
+    \textsc{\Huge The Effect of Towing on Poor Households}\\[2em]
+
+	\textsc{\Large Noah Dixon}\\[2em]
+	
+    %{\Large Noah Dixon}\\[3em]
+
+	\textbf{\textsc{\LARGE {\color{darkred}9-18-24} }}
+	
+	\vspace*{\fill}
+
+\end{titlepage}
+
+%\title
+%\name
+%\data
+%\maketitle
+%\thispagestyle{empty}
+\newpage
+\UseRawInputEncoding
+
+%defining Chicago as purely capitalized
+\newcommand{\capitalizeTitle}[1]{%
+    \StrSubstitute{#1}{ }{~}[\title]%
+    \expandafter\capitalizetitle\expandafter{\title}%
+}
+
+\newcommand{\capitalizetitle}[1]{%
+    \expandafter\StrSubstitute\expandafter{#1}{~}{ }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ a }{ A }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ an }{ An }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ and }{ And }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ as }{ As }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ at }{ At }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ but }{ But }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ by }{ By }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ for }{ For }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ from }{ From }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ in }{ In }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ into }{ Into }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ near }{ Near }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ of }{ Of }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ on }{ On }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ onto }{ Onto }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ or }{ Or }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ the }{ The }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ to }{ To }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ under }{ Under }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ upon }{ Upon }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ with }{ With }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ within }{ Within }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ without }{ Without }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ and }{ And }[\Title]%
+    \expandafter\MakeUppercase\expandafter{\Title}%
+}
+
+\newcommand{\zz}{\mathbx Z}   %blackboard bold Z
+\newcommand{\qq}{\mathbx Q}   %blackboard bold Q
+\newcommand{\ff}{\mathbx F}   %blackboard bold F
+\newcommand{\rr}{\mathbx R}   %blackboard bold R
+\newcommand{\nn}{\mathbx N}   %blackboard bold N
+\newcommand{\cc}{\mathbx C}   %blackboard bold C
+\newcommand{\dd}{\mathsf D}   
+\newcommand{\id}{\operatorname{id}} %for identity map
+\newcommand{\im}{\operatorname{im}} %for image of a function
+\newcommand{\dom}{\operatorname{dom}} %for domain of a function
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert} %for absolute value
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} %for norm
+\newcommand{\modar}[1]{\operatorname{mod}{#1}} %for modular arithmetic
+\newcommand{\set}[1]{\left\{#1\right\}} %for set
+\newcommand{\setp}[2]{\left\{#1\ :\ #2\right\}} %for set with a property
+\newcommand{\lag}{\mathcal{L}}
+
+\renewcommand\thepage{}
+
+%Re-defined notations
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+%----------------------------------------------
+%Theorem, Lemma, Example, Definition etc. environments
+
+%By default, the text in these environments are italicised
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{proposition}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+\theoremstyle{lemma}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{corollary}
+\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition} %makes text non-italicized
+\theoremstyle{example}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{conclusion}
+\newtheorem{conclusion}[theorem]{Conclusion}
+
+
+
+
+
+
+\section{Research Proposal}
+
+\noindent\textbf{Question:} Does towing -- and booting -- function as both a negative income shock and negative asset shock, disproportionately affecting low-income neighborhoods?
+
+\noindent\rule{\linewidth}{0.4pt}
+
+
+\noindent\textbf{Motivation:} While a growing body of work examines the effects of monetary fines on household finances and behavior (Mello 2023; Kessler 2020) \cite{Mello} \cite{Kessler}, there is almost no literature regarding the economic consequences of towing. The only statistical work stems from Allen and Marks (2008) \cite{Allen} --  an \emph{associative} analysis from a legal perspective. To date, there is no quasi-experimental evidence regarding the effects of towing on household behavior.
+
+In New York, since the early 1990s, the accumulation of more than $\$350$ in parking fines has warranted towing. Since 2010, red-light camera violations have counted toward this threshold, and in 2014 the launch of New York City's speed camera program further expanded the types of violations contributing to this threshold. Enforcement is actualized through two avenues: booting and towing. Booting involves immobilizing a car by attaching a wheel boot (or clamp) to the tires. If the fines are not paid with 72 hours, the car can be towed. From 6/25/2012--2/12/2024, $\$861,314,767.36$ was collected from booting and towing. Out of the vehicles booted, $10.78\%$ were towed. Out of the 113,080 cars towed, $54.70\%$ of them were auctioned off (presumably due to a lack of funds).
+
+There are many reasons to believe that booting and towing are \emph{more} detrimental, to average household behavior -- and specifically to poor households -- than \enquote{pure} negative income shocks, like speeding tickets or parking fines. The first -- and most obvious -- is that there is a natural progression occurring: 
+\begin{equation}
+\text{Fines} + \text{Speeding Tickets} \to \text{Booting} \to \text{Towing}.
+\end{equation}
+In this way we can think of the first as being a subset of a more pervasive problem.
+
+Independent of this argument, when someone is given a speeding ticket, the effects are long-term oriented (in that they do not necessarily need to be paid), although the extent of this effect is discounted according to disposable income. In Mello (2023) \cite{Mello}, for instance, fines increase the quantity of defaults on other bills, and in Kessler (2020) \cite{Kessler}, speeding tickets significantly increase the number of Chapter 13 bankruptcies. When someone's car is booted -- or towed -- however, the effects are short-term oriented (in that they must be paid immediately). For poor households, the effects of booting and towing are often not an immediate negative income shock (which is how you could classify it for medium-income households) -- they are a negative asset shock that strips a household of its most important asset. Moreover, there are spillover effects -- such as a loss in labor market participation (from the loss of a commuting vehicle) and restrictions on borrowing (due to credit decreases) -- that may precipitate, if an individual is unable to pay. Consequently, we can think of towing as functioning as a regressive tax on poor-income households, a negative income shock on medium-income households, and a negligible shock on high-income households, relatively speaking. Likely, the effects of these results precipitate at a more aggregate level. 
+%although the extent of this effect is discounted according to disposable income and the number of assets currently owned by the household. 
+
+
+
+\noindent\rule{\linewidth}{0.4pt}
+
+
+\noindent\textbf{Empirical Design:} 
+The towing data comes from the NYC Department of Finance's Scofflaw Enforcement Program. This dataset contains license plate number, issuing state, plate type, judgment amount, boot date, tow indicator and date, redemption indicator and date, total amount owed, total amount collected, auction indicator and date, and auction amount. \textbf{One issue is that towed vehicles are not linked to a zip code. Another issue is that no data exists (for public access) before 2012.} To obtain this data, I would need to file a FOIL request through the DOF. More specifically, I would request two things: data before 2012 and zip codes corresponding with the vehicles towed. The latter half can be satisfied, even with annual, aggregated data (which may be the only data I can access). The former half is not necessary (but will help strengthen the causal argument).
+
+Empirically -- and more generally, the strategy is to leverage a DiD according to \emph{each} of these policy variations (i.e., the 2010 and 2014 enforcement). The trickiest part is constructing the treated and control groups. One idea is to estimate the likelihood of being towed to each zip code -- according to road ruggedness, population condensation, traffic density, \emph{exposure} to snow routes, complaints (this one may need to be dealt with another way) etc. -- and then use \emph{gradations} of exposure as treatment intensity (similar to the \enquote{potato} paper). 
+
+The biggest issue, with using income as the dependent variable, is threefold: (i) these shocks may not be large enough to move income, (ii) there is lots of noise within each zip code, and (iii) there are endogeneity concerns (i.e., many potential violations against the parallel trends assumptions). To hedge against this concern, the main specification -- which leverages a DiD approach with heterogenous treatment effeccts moderated by baseline income -- is,
+\begin{align}
+Y_{it} = \ & \alpha 
++ \beta(\text{Tow Exposure}_i \cdot \text{Median Income}_i \cdot \text{Post Policy}_t) \nonumber \\
+& + \gamma_1(\text{Tow Exposure}_i \cdot \text{Post Policy}_t) \nonumber \\
+& + \gamma_2(\text{Median Income}_i \cdot \text{Post Policy}_t) \nonumber \\
+& + \mu_i + \lambda_t + \varepsilon_{it},
+\end{align}
+where $i \in \{\text{Zip Code}\}$, $t \in \{0,1\}$, $Y_{it}$ represents the tow rate per capita, boot rate per capita -- or both -- $\text{Median Income}_i$ represents the median income per zip code \emph{at the inception of the policy}, $\mu_i$ represents ZIP code FE, and $\lambda_t$ represents time FE (Athey \& Imbens, 2006) \cite{Athey}. \textbf{Note that income is serving as a moderator here -- not the treatment or control.} The obvious question is whether the \emph{parallel trends} assumption holds. Formally, we can represent this as,
+\begin{align}
+& \mathbb{E}[Y_{i1}^0-Y_{i0}^0 \mid \text{Tow Exposure} = x \nonumber \\
+& \quad - \mathbb{E}[Y_{i1}^0-Y_{i0}^0 \mid \text{Tow Exposure} = x'] \nonumber \\
+\end{align}
+for all $x,x' \in \text{Tow Exposure}$. Simply put, absent of the policy change, the way towing outcomes trended within income groups would not systematically depend on tow exposure. There are two reasons to believe this holds, in practice: (i) the policy is implemented citywide, even if its effects are not felt citywide, and (ii) tow exposure is structural and not determined by income levels. \emph{The crucial component here is that the tow rate per capita is moderated by income.} One potential violation of this could be if NYPD suddenly ramps up towing in a certain neighborhood, \emph{independent} of the policy change, for some arbitrary political reason. 
+
+There are additional concerns that warrant clarification:
+\begin{enumerate}
+\item \emph{How do we deal with the difference between towing and booting, statistically?} In fact, the dependent variable can be easily manipulated to reflect both outcomes. The differential between the two -- or the even ratio -- could also be intriguing to dissect.
+\item \emph{Can \enquote{smaller} disaggregated data, beyond the zip code, be extracted, from all data sources?} The argument becomes significantly stronger, as the data becomes more disaggregated. In fact, at the zip code level, there could be lots of hetereneity within each zip code. However, $\text{Tow Exposure}_i$ needs to be defined, prior, to ensure that it can be accurately calculated with the census data available. 
+\item \emph{Is there sufficient statistical power to detect meaningful results?} There are over $1,000,000$ instances of towing and booting, from 6/25/2012--2/12/2024. It seems like this may cause \emph{some} effect on individuals. 
+\item \emph{What covariates -- if any -- should be controlled for?} Empirically, nothing. Practically, I will need to check what the corresponding literature is doing. 
+\item \emph{Could certain household measures -- such as defaults, bankruptcies, license suspensions, bankruptcies employment loss, etc. -- be used as a dependent variable, over Tow Exposure? Alternatively, are they more likely to satisfy the parallel trends assumption?} Previous studies may help me narrow my focus.
+\item \emph{Empirically, how will a negative income shock and negative asset shock be differentiated?} This ties into the difference between towing and booting. 
+\item \emph{Many households use other means of transportation. Does an increase in towing or booting shift people towards these modes of transportation? How does Uber and Lyft factor into this equation?}
+\item \emph{New York is a particularly unique form of transportation -- are its effects able to be extrapolated anywhere else?} You could argue that, in a smaller city, if a causal relationship is uncovered, it is \emph{more} likely to have an effect, due to a lack of widespread public transportation. In College Station, for instance, if your car is towed, it effectively immobilizes you for a certain time period.
+\end{enumerate}
+
+%Additionally, we can utilize the \emph{exposure} to snow routes as another form of treatment. The idea is simple: weather shocks are abnormal events that provide an exogenous shock. However, there is no way to leverage these occurrences in a DiD design (since income data is annual). Instead, we can use the proportion of streets on snow routes in a ZIP code as another form of treatment. The idea is that, over time, the effects of these weather shocks may aggregate. Including this gives us a structural feature that drives exposure, over time. 
+
+%Putting these together, the specification becomes,
+%\begin{equation}
+%Y_{it} = \alpha + \beta(\text{Tow Exposure}_i \cdot \text{Post Policy}_t) + \mu_i + \lambda_t + \epsilon_{it},
+%\end{equation}
+%where $i \in \{\text{Zip Code}\}$, $t \in \{0,1\}$, and $Y_{it}$ is the median income. 
+
+
+%\noindent\textbf{Data:} 
+%\emph{https://data.cityofnewyork.us/City-Government/DOF-Scofftow-Case-Information/qmh3-uvgq/about\_data} 
+
+%\item $https://www.chicago.gov/city/en/dataset/relocated_vehicles1.html$
+
+%Gives a list of vehicles that have been towed and impounded by the City of Chicago within the past 90 days. 
+
+%\item $https://www.chicago.gov/city/en/dataset/relocated_vehicles.html$
+
+%Gives a list of vehicles that have been \emph{relocated} by the City of Chicago within the last 90 days. 
+
+%\begin{align}
+%Y_{it} \;=\; & \; \mu_i \;+\; \lambda_t  \nonumber \\
+%& + \beta \,\text{Tow Exposure}_{it}  \nonumber \\
+%& + \theta \big( \text{Tow Exposure}_{it} \times \text{Median Income}_{it} \big) \nonumber \\
+%& + \psi \,\text{Median Income}_{it}   \nonumber + \varepsilon_{it}
+%\end{align}
+
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Theoretical Impetus:} 
+
+
+
+\newpage
+\bibliographystyle{chicago}
+\bibliography{Sources.bib}
+%\addcontentsline{toc}{section}{References}
+\end{document}
+
