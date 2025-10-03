@@ -1,0 +1,320 @@
+\documentclass[12pt,letterpaper,doublespace, oneside]{article}
+%\documentclass[12pt]{extarticle}  % Use 14pt globally
+
+
+
+
+%Here are the various packages I use. Some may be duplicated. 
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\usepackage{amsmath,amsthm,amssymb} % math package
+\usepackage{mathtools} %to beef up the above package, more math!
+\usepackage{tikz} %for drawing 
+\usepackage{graphicx} %for including graphics
+\usepackage{fancybox} %for some nice formatting options
+\usepackage[hidelinks]{hyperref} %for referencing
+%hidelinks removes red and green boxes
+\usepackage{varwidth} %for some nice width control
+\usepackage{mdframed} %for framed environments
+\usepackage{mathrsfs} %more math fonts
+\usepackage{xcolor} %color package
+\usepackage{setspace}
+\usepackage{multirow,array}
+\usepackage{caption}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage[numbers, square]{natbib}
+\usepackage{titlecaps}
+%\usepackage[paper=a3paper]{geometry}
+\usepackage{tabularx}
+\usepackage{cleveref}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{xstring}
+\usepackage{nameref}
+\usepackage{amsthm}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{booktabs} %include in preamble
+%Here are the various packages I use. Some may be duplicated. 
+
+
+
+
+
+
+%Define colors and symbols%
+%\usepackage[notes,backend=biber]{biblatex-chicago}
+%\usepackage[authordate-trad,backend=biber]{biblatex-chicago}
+\MakeOuterQuote{"}
+%some colours
+\definecolor{firebrick}{RGB}{178,34,34}
+\definecolor{teal}{RGB}{0,128,128}
+\definecolor{indigo}{RGB}{75,0,130}
+\definecolor{darkblue}{rgb}{0.0,0.0,.7}
+\definecolor{darkred}{rgb}{0.6,0.0,0.0}
+\definecolor{lightgrey}{RGB}{220, 220, 220}
+\definecolor{darkgrey}{HTML}{878787}
+\definecolor{forest}{HTML}{004a2f}
+\definecolor{dirt}{HTML}{5d4728}
+\definecolor{newblue}{HTML}{004fd9}
+\definecolor{paleyellow}{HTML}{FFFFD3}
+\renewcommand{\thesection}{}  % Remove numbering from \section
+\renewcommand{\thesubsection}{}  % Remove numbering from \subsection
+\renewcommand{\thesubsubsection}{} 
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\SetMathAlphabet{\mathbx}{bold}{U}{BOONDOX-ds}{b}{n}
+\DeclareMathAlphabet{\mathbbx} {U}{BOONDOX-ds}{b}{n}
+\doublespacing
+%\usepackageA{hyphenat}
+\DeclareCaptionLabelFormat{blank}{}
+\let\cleardoublepage\relax
+%Define colors and symbols%
+
+
+
+
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{\fill}
+
+    \textsc{\Huge Research Proposal \#3 }\\[2em]
+
+	\textsc{\Large Noah Dixon}\\[2em]
+	
+    %{\Large Noah Dixon}\\[3em]
+
+	\textbf{\textsc{\LARGE {\color{darkred}10-2-25} }}
+	
+	\vspace*{\fill}
+
+\end{titlepage}
+
+%\title
+%\name
+%\data
+%\maketitle
+%\thispagestyle{empty}
+\newpage
+\UseRawInputEncoding
+
+%defining Chicago as purely capitalized
+\newcommand{\capitalizeTitle}[1]{%
+    \StrSubstitute{#1}{ }{~}[\title]%
+    \expandafter\capitalizetitle\expandafter{\title}%
+}
+
+\newcommand{\capitalizetitle}[1]{%
+    \expandafter\StrSubstitute\expandafter{#1}{~}{ }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ a }{ A }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ an }{ An }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ and }{ And }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ as }{ As }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ at }{ At }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ but }{ But }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ by }{ By }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ for }{ For }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ from }{ From }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ in }{ In }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ into }{ Into }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ near }{ Near }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ of }{ Of }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ on }{ On }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ onto }{ Onto }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ or }{ Or }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ the }{ The }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ to }{ To }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ under }{ Under }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ upon }{ Upon }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ with }{ With }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ within }{ Within }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ without }{ Without }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ and }{ And }[\Title]%
+    \expandafter\MakeUppercase\expandafter{\Title}%
+}
+
+\newcommand{\zz}{\mathbx Z}   %blackboard bold Z
+\newcommand{\qq}{\mathbx Q}   %blackboard bold Q
+\newcommand{\ff}{\mathbx F}   %blackboard bold F
+\newcommand{\rr}{\mathbx R}   %blackboard bold R
+\newcommand{\nn}{\mathbx N}   %blackboard bold N
+\newcommand{\cc}{\mathbx C}   %blackboard bold C
+\newcommand{\dd}{\mathsf D}   
+\newcommand{\id}{\operatorname{id}} %for identity map
+\newcommand{\im}{\operatorname{im}} %for image of a function
+\newcommand{\dom}{\operatorname{dom}} %for domain of a function
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert} %for absolute value
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} %for norm
+\newcommand{\modar}[1]{\operatorname{mod}{#1}} %for modular arithmetic
+\newcommand{\set}[1]{\left\{#1\right\}} %for set
+\newcommand{\setp}[2]{\left\{#1\ :\ #2\right\}} %for set with a property
+\newcommand{\lag}{\mathcal{L}}
+
+\renewcommand\thepage{}
+
+%Re-defined notations
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+%----------------------------------------------
+%Theorem, Lemma, Example, Definition etc. environments
+
+%By default, the text in these environments are italicised
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{proposition}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+\theoremstyle{lemma}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{corollary}
+\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition} %makes text non-italicized
+\theoremstyle{example}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{conclusion}
+\newtheorem{conclusion}[theorem]{Conclusion}
+
+
+
+
+
+
+\section{Research Proposal}
+
+\noindent\textbf{Topic ($\neq$ Question):} Can heterogeneous applications of policy learning be used to predict the effects of an optimally designed experiment, in a different environment than that which was initially run?
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Main Idea:} The idea is to synthesize the methodology of optimal policies (Athey \& Wager 2021) \cite{Athey2021} and optimally-designed experiments (Higbee 2024; Tabord-Meehan 2022; Watson et al. 2023) \cite{Higbee2024} \cite{TabordMeehan2023} \cite{Watson2023} to predict the \enquote{likelihood of generalization,} conditional on a wide stratum of covariates and a restricted budget set. The former involves algorithmic welfare maximization; the latter, an optimal experimental design.
+
+To test this, I will use two experimental counterparts. The first experiment is the \enquote{bread and butter.} Its purpose is to utilize an optimal experimental design to determine the efficacy of \enquote{AI integration} -- that is, literally giving AI to people as treatment -- in a developing country. Covariates should be selected for the purpose of generalizing to another environment. That is to say, they should match census data; or, if census data is unavailable -- or unreliable -- easily ascertained via survey methods. Building off the results of the first experiment, the idea is to use this data to predict the optimal policy in another environment, using two methods: (i) the ATE, absent of covariates, and (ii) the welfare-maximizing policy, as devised in Athey and Wager (2021) and actualized from the transportability literature. In particular, by using the welfare-maximizing policy as an additional piece of information, it may be possible to reconstruct a posterior probability map, conditional on the covariates extracted from census data (given that certain transportability conditions are satisfied). From here, a second experiment should be ran, using the current, standard methodology in the field -- a \enquote{benchmark} RCT. This allows us to test the prediction from the first experiment. Clustering is not required -- or allowed, by the methodologies utilized. 
+%Whether to cluster or not is not immediately ascertainable. For instance, clustering is not allowed in Higbee (2024) \cite{Higbee2024} and Tabord-Meehan (2022) \cite{TabordMeehan2023}, whereas clustering is allowed in Watson et al. (2023) \cite{Watson2023}. 
+
+In particular, by leveraging two experimental counterparts, it allows me to simultaneously test numerous research questions: 
+\begin{enumerate}
+\renewcommand{\labelenumi}{\Roman{enumi}.}
+\item The prediction accuracy of the first experiment when extrapolated to the second experiment's environment vs. the prediction accuracy of the second experiment when extrapolated to the first experiment's environment. 
+%This could, in part, provide an algorithmic approach to experimental generalization. In particular, by testing this on countries with significant cultural disparities, it may provide insight into the applications of transportability.
+\item The added value of an optimally-designed experiment.
+\item The relative efficacy of AI integration on different subpopulations.
+\end{enumerate}
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\newpage
+\section{Framework}
+\noindent\textbf{Motivation:} There is a conflation, in the literature right now, between two distinct types of experiments: (i) an experiment conducted for the purposes of \emph{uncovering} a causal relationship, typically in a \emph{contained environment} and (ii) an experiment conducted for the purposes of \emph{projecting} a causal relationship. The former can be satisfied by quasi-experimental methods -- and to the extent to which that is not possible -- experimental methods. However, the latter asks a distinctly different question: how can we simultaneously minimize variance and cost, conditional on wide set of covariates, and \emph{project} this relationship onto a larger population? While these methodologies overlap, I believe this distinction is important. 
+
+The standard -- in lab experiments as well as field experiments -- is to use ex-ante frequentist power analysis to justify an effect size -- and consequently, a sample size that satisfies effect size. Ex-ante power analysis is conducted for two reasons: (i) to annihilate the \enquote{endogenous stopping rule} -- the process of perpetually generating data until we statistically significant results -- and (ii) as a means of uncovering a larger relationship in the population. However, this process, while satisfying (i), has unnecessarily restricted the scope and application of (ii). To illustrate the perils, statistically, of this process, consider the following example, which stems from Cohen (1973) \cite{Cohen1973}: suppose $\mu_A = 5.5$, $\mu_B = 5$, $\sigma_A = 1$, $\sigma_B = 1$, $\alpha = .05$, and $\beta = .8$. Under unequal sample sizes, let $d = \frac{\mu_A-\mu_B}{\sigma}$, where $\sigma = \sqrt{\frac{s_A^2 + s_B^2}{2}}$, and $n \approx \frac{2(Z_{1-\alpha/2} + Z_{1-\beta})^2}{d^2}$. Then, $d= \frac{5.5-5}{\sqrt{(1^2+1^2)/2}} \approx .5$. However, suppose this canonical study is underpowered, such that $\mu_A^{true} = 5.25$ and $\sigma_A^{true} = .9$ reflect the true population parameters. Consequently, $d^{true} \approx 0.26$. Transmuting this to the required sample size, we have $n \approx \frac{2(1.96+.84)^2}{.5^2} = 62.72$. However, under $d^{true}$, $n^{true} = 253.76$. \emph{Fundamentally, slight deviations, from the true population values, can lead to stark differences, in power analysis derivation.} The effects are even more severe when: (i) studies are compounded on top of each other, (ii) the designs of the initial study differ, (iii) the results are only prevalent in different subsets of the entire population, and (iv) when the \enquote{winner's curse} is prevalent (it always is). Additionally, it is fundamentally unclear what the effect sizes are, conditional on covariates (if implementing the CATE, for instance).
+
+There are four main ways the literature has attempted to fix this issue: (I) simulation-based Bayesian methods (commonly used in medicine), (II) a sufficiently-large pilot, which can thereafter be used to identify the exact sample size, (III) Bayesian updating, which adheres to an algorithmic process, and which updates the sample size, \emph{conditional} on new data coming in, and (IV) MDE, an ex-ante analysis of the minimum effect you are likely to see, conditional on a sample size and previously calculated sample sizes. (IV) is, like ex-ante frequentist power analysis, highly dependent on the ex-ante standard deviation, which is subject to the same scrutiny described above. A combination of (II) and (III) is likely the most applicable in the context of constructing an experiment for the purpose of \emph{projecting} a causal relationship. 
+%\textbf{Rigorously defining this relationship could be its own paper.}
+
+All of this ties into the larger question of external validity. Likely, it is not a formal, closed-form rule that we can follow, but a series of complicated algorithms, conditional on a well-defined canonical study (Lee, Correa \& Bareinboim 2019) \cite{Lee2019}. The econometrics literature has expanded into this area, but the applied literature is lagging behind (likely due to the complexity of the underlying methodology). \textbf{\emph{Note that my goal, more generally, is to synthesize and operationalize existing econometric methods in the policy learning literature, optimal experimental design literature, and transportability literature -- not to develop an entirely new econometric methodology.}}
+
+
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Athey and Wager (2021) Methodology:} 
+Define the data as $(X_i,T_i,Y_i)$ where $T_i \in \{0,1\}$, a policy class $\Pi$ as the set of all possible rules, and define $W(\pi) = \mathbb{E}[Y(\pi(X))]$ as the expected outcome if treatments are assigned to rule $\pi: \mathcal{X} \to \{0,1\}$.\footnote{In the literature, the individual-level estimate is given by, $\hat{\theta} = \frac{1}{n}\sum_i\psi_i$, where $\psi_i$ is the doubly robust score for each individual $i$. A doubly robust score combines the observed outcome, treatment, and estimate nuisance functions. Formally, 
+\[
+\psi_i = \hat{m}_1(X_i) - \hat{m}_0(X_i) + \frac{T_i}{\hat{e}_i(X_i)}\big(Y_i - \hat{m}_1(X_i)\big) - \frac{1-T_i}{1 - \hat{e}_i(X_i)}\big(Y_i - \hat{m}_0(X_i)\big),
+\]
+where $\hat{m_t}(x)$ is the estimated regression function and $\hat{e(x)}$ is the estimated propensity score. In Athey and Wager (2021), $\hat{m_t}(x)$ is obtained using any supervised learning regression method (linear regression or logistic regression [the classical choice], lasso estimation or ridge estimation, random forests, boosted trees, neural nets, or causal forests) and $\hat{e(x)}$ is obtained using similar (albeit simpler) methods. Note that it is just the predicted probability of treatment assignment given $X = x$. Next, you can express the welfare of a policy $\pi$ as,
+\[
+\hat{\pi} = \underset{\pi}{\text{argmax}}\left\{\frac{1}{n}\sum_{i=1}^n(2\pi(X_i) - 1)\hat{\psi}: \pi \in \Pi\right\},
+\]
+where $\pi(X_i) = 1$ implies treatment, $\pi(X_i) = 0$ implies no treatment, and $\hat{W}(\hat{\pi})$ is the welfare from the optimal policy itself. The \enquote{-1} is a coding trick that gives a positive weight of \enquote{+1} to people treated and a negative weight of \enquote{-1} to people who are not treated. In this way, somebody who would negatively benefit from treatment will \emph{\textbf{increase}} the welfare of society. The main result of this paper is that $\hat{\pi}$ has a regret bound,
+\[
+R(\hat{\pi}) = \max_{\pi' \in \Pi}\mathbb{E}[Y_i(\pi'(X_i))] - \mathbb{E}[Y_i(\pi(X_i))] = \underset{\pi'\in\Pi}{max}\{W(\pi')-W(\hat{\pi})\},
+\]
+which gives us the economic surplus from a policy, and which is \enquote{bounded on the order of $\sqrt{VC(\pi)/n}$}. That is to say, $R(\hat{\pi}) = O_p(\sqrt{\frac{VC(\Pi)}{n}})$, which means that, as the sample size $n$ grows, the regret shrinks towards $0$ (although this depends on the complexity of the policy class, $VC(\Pi)$, where \enquote{VC} = VC dimension.} The rule $\pi$ can be anything (within reason). For instance, $\pi$ could be that you only treat individuals over the age of 60 -- which might be the best policy, in terms of \emph{maximizing} welfare in society.
+
+The first step of this process is to \emph{split} the data into two -- or more -- \enquote{folds}. The first fold will be used to estimate the treatment effect, $\tau(X)$, and the second fold will be used to choose a policy rule that maximizes welfare. 
+
+To estimate the individual-level CATE, we must first compute individual doubly robust scores, $\psi(x)$ (see footnote 1). To estimate the CATE for \emph{each} covariate profile, we apply ML methods (random forests, causal trees [Athey \& Imbens, 2016], boosting, lasso, etc.) to smooth and aggregate the individual doubly robust scores $\hat{\psi}_i$ across values of $X$ to derive $\hat{\tau}(x)$, where the true CATE is defined by:
+\[
+\tau(x) = \mathbb{E}[Y(1) - Y(0)|X=x]. 
+\]
+
+Next, we need to construct candidate policies, $\pi \in \Pi$, which essentially functions as a treatment assignment strategy. A typical policy rule is $\pi(x) = \mathbf{1}\{\beta'x > 0\}$, although there are certainly other alternatives. In general, the amount of covariates we use at this stage -- versus the amount of covariates we use in the CATE stage -- is significantly lower, to avoid overfitting and to make the rules interpretable. Lasso, ridge, and abiding by theoretical concerns (i.e., there are specific variables which are weighted more heavily in the analysis) or structural models are all viable strategies. 
+
+Now, on the \emph{evaluation} fold (the second fold), we use inverse probability weighting (IPW) to assign people based on \emph{each} policy rule,
+\[
+\hat{W}(\pi) = \frac{1}{n}\sum_{i=1}^n\frac{Y_i\cdot \mathbf{1}\{T_i = \pi(X_i)\}}{p(T_i)}, 
+\]
+where $p(T_i)$ is the randomization probability (we need to re-weight to get the true welfare effect since only a proportion of people are actually treated). In practice -- and to fix bias and variance issues -- they use doubly robust scores (see footnote). We iterate this process for \emph{each} policy rule. 
+
+Finally, the algorithm selects $\hat{\pi} = \underset{\pi \in \Pi}{\text{argmax}}\{\hat{W}(\pi)\}$. This is the rule with the highest estimated welfare on the evaluation sample.\footnote{
+%There are numerous assumptions underlying this process. The first assumption is that the \enquote{functional $m(\cdot) \to \tau_m(\cdot)$ is linear in $m$, and there exists a weighting function $g(x,z)$ identifies $\tau_m$}; in the binary unconfoundedness case, the doubly robust score, $\psi_i$ is a way of operationalizing this structure (in other words, it a manifestation of this assumption). As long as $\psi_i$ is estimated consistently, the process below can be iterated for a number of circumstances (as long as the nuisance models are estimated consistently). The second assumption requires that the \enquote{policy value can be defined in terms of moments of $\tau_m(X_i,W_i)$, such that $V(\pi) = \mathbb{E}[\pi(X_i)\tau(X_i)]$ with $\tau(x) = \mathbb{E}[\tau_m(X_i,W_i)\mid X_i = x]$ for all $\pi: \chi \to \{0,1\}$}; essentially, this implies that, instead of reconstructing the entire model of outcomes under all treatments, you just need the treatment effect function. Note that $\tau(x)$ reflects the target CATE, where $\mathbb{E}[\psi_i|X=x] = \tau(x)$ in the binary case. That is to say, by pooling many $\psi_i$'s, you recover the population-level estimator $\tau(x)$. The third assumption requires that \enquote{we have access to uniformly consistent estimators of these nuisance components}, which typically holds unless we have small samples of very high dimensions. The fourth assumption restricts the complexity of of $\Pi_n$, and the fifth assumption bounds the weighting function -- both of which are regularity conditions. 
+There are numerous assumptions used in this paper, which are quite complex. To condense these assumptions: if unconfoundedness holds, if the nuisance components are estimated consistently and remain well-behaved, if the CATE is consistently estimated, and if the policy class $\Pi$ is properly restricted to avoid overfitting, then the learned policy $\hat{\pi}$ is asymptotically equivalent to the optimal policy $\pi^\star$. Note that heteroskedastic units are allowed, in this design.}  
+
+There are a multitude of other components, in the paper, that are worth mentioning. The \emph{regret bound} here is given by, $W(\hat{\pi}) \geq \underset{\pi \in \Pi}{\text{sup}}\{W(\pi)\} - o_p(1)$. Essentially, this says that, as your sample size grows, the welfare of the optimal policy is \emph{almost} as good as the \emph{true} policy, $\pi^\star$. To state it more simply, $W(\hat{\pi}) \overset{p}{\to} W(\pi^\star)$ (and the gap shrinks at the rate $\sqrt{1/n}$). \emph{In fact, this is precisely the main point of the paper.} As long as $\Pi$ is properly controlled -- that is, if is restricted and regularized -- then the complexity is manageable. Cross fitting -- which involves running the process on \emph{each} fold, at separate times -- should also be used to help control $\Pi$ (this is the process we have iterated above). By leveraging an \enquote{optimal experimental design,} it becomes more likely that the assumptions will hold.
+%\textbf{I will need to explicitly prove this.}
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Optimal Experimental Methodology:} 
+(Higbee 2024; Tabord-Meehan 2022; Watson et al. 2023) \cite{Higbee2024} \cite{TabordMeehan2023} \cite{Watson2023} are placeholders for a plethora of papers that must be further examined. One issue is ensuring that robust standard errors do not \enquote{corrupt} the process; that is, that the $i.i.d.$ assumption can be relaxed. As a general rule, medicine seems to be significantly ahead of economics, in terms of devising an optimal study (perhaps because it is more willing to adopt Bayesian methods), while computer science is significantly ahead of all other fields, in the \emph{projection} of causal effects (perhaps because it is more willing to adopt messy, algorithmic solutions). 
+
+\noindent\rule{\linewidth}{0.4pt}
+
+
+\noindent\textbf{External Validity:} 
+One way to generalize is to use a sufficiently large amount of clusters to fully encapsulate the larger population. However, in many contexts, this is infeasible. For instance, in 1997, Mexico launched Progresa, the first large-scale conditional cash transfer (CCT) program, which included 506 rural villages and 24,000 households. In practice, this is infeasible for most researchers. Further, while this study inspired similar programs in Latin America, there is little statistical evidence that this is a welfare-maximizing policy in those specific countries. In particular, for treatments of equal monetary status -- e.g., farming subsidies, vaccines, etc. -- there may be a policy that achieves even more welfare. Clustering can only generalize to the larger population in which it clusters (assuming that $G$ is sufficiently large and the sample estimate $\hat{\theta}$ is fully representative of the larger population).
+%While this is a big \enquote{generalization} (pun intended), it encapsulates the basic idea of clustering (at least, from my understanding). 
+
+As described above, the process given by Athey and Wager (2021) \cite{Athey2021} defines an optimal policy, based on a pre-defined data set (not an optimally designed experiment, like I propose). For instance, in Athey et al. (2024), they define an optimal policy to \enquote{nudge} students prior to financial-aid applications, showing that nudging all students is sub-optimal. However, in many contexts -- and specifically in developmental interventions -- these sorts of policy rules are unethical. \enquote{Treat everyone over the age of 50,} for instance, is not something that can be advocated for, as a policy, especially if the treatment could \emph{potentially} -- and significantly -- benefit any arbitrary member of the subpopulation. That being said, we can use this as an extra piece of information, when deciding how to extrapolate these results to new contexts. Beyond this, I believe that we can invert this policy function, to determine the \emph{worst} policy. In this way, we can reconstruct a  posterior probability map,, conditional on the covariates we extract from census data. \textbf{More generally, the goal should be to significantly outperform the ATE -- not recover a completely unbiased estimate.} If we have multiple treatments -- and multiple policies -- we can use this information to determine the optimal policy for each region, although this may be beyond the scope of this study. 
+
+In theory, there are a number of assumptions underlying this process, which I will need to examine further. 
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{AI Integration as a Treatment Strategy:} 
+There are numerous aid strategies to study, in practice. However, the most applicable -- and perhaps the most novel -- is treating AI integration as the treatment itself. The idea is to give some people computers and to give some people computers \emph{with} explicit -- and conditional -- AI training. In the literature, thus far, there is sufficient evidence that giving people computers is ineffective (Cristia et al. 2017; Angrist and Lavy 2002) \cite{Cristia2017} \cite{Angrist2002}. Likely, this is the result of: (i) targeting the incorrect people, and (ii) targeting people the wrong way. To my knowledge, nobody has attempted to test AI integration as a treatment strategy yet. Obviously, significantly more work needs to go into fleshing this idea out.
+
+
+
+%\noindent\textbf{Deworming:} 
+%There are numerous aid administration strategies to study, in practice. To narrow the scope, however, I will only look at deworming, specifically because of the apparent \enquote{discrepancy} in the literature. For instance, while Miguel and Kremer (2004) and Baird et al. (2016) show positive effects of deworming on a smaller scale, Welch et al. (2019) find that this relationship disintegrates on a larger scale. This apparent discrepancy is likely due to a discrepancy of the \emph{scale} in which each respective set of experiments is invoked.
+
+%\noindent\rule{\linewidth}{0.4pt}
+
+
+%\noindent\textbf{Potential Issues:} 
+%\begin{enumerate}
+%\item \emph{As it stands, this is a research topic -- not a research proposal.} There are multiple papers within this topic, and as it stands, many of my ideas are far too broad. 
+%\item \emph{The added-value of an optimally-designed experiment may be weaker than expected.}
+%\item \emph{The methodology may not yet be advanced enough for the things I aim to test.}
+%\end{enumerate}
+
+
+
+
+\newpage
+\bibliographystyle{chicago}
+\bibliography{Sources.bib}
+\addcontentsline{toc}{section}{References}
+\end{document}
+

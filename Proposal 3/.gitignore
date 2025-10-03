@@ -1,0 +1,28 @@
+%Workflow Process (Noah Dixon)
+(1) Raw files (original data)
+(2) Code that changes raw files to ready files
+(3) Ready files (data is ready to run regresson to go)
+
+%Helpful Tips:
+(1) Save as .eps files
+
+
+%Full Code:
+cd C:\Users\noahd\OneDrive\Documents\CuRrEnT ReSeArCh\Public Economics\Proposal 2
+git init
+git remote add origin https://github.com/noahdixon400/Public-Economics.git
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git push -u origin main
+
+...to add anything else:
+git add .
+git commit -m "Finished Proposal 2"
+git push
+...note that "add ." gives the changes of ALL folders
+
+...if you need to add a SINGLE folders/file at a later date
+git add Data\ Transformation/ Ready\ Data/
+git commit -m "add data folders"
+git push
