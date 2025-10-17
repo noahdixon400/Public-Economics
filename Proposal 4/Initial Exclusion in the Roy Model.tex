@@ -1,0 +1,284 @@
+%\documentclass[12pt,letterpaper,doublespace, oneside]{article}
+\documentclass[17pt]{extarticle}  % Use 14pt globally
+
+
+
+
+%Here are the various packages I use. Some may be duplicated. 
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\usepackage{amsmath,amsthm,amssymb} %this is THE math package
+\usepackage{mathtools} %to beef up the above package, more math!
+\usepackage{tikz} %for drawing 
+\usepackage{graphicx} %for including graphics
+\usepackage{fancybox} %for some nice formatting options
+\usepackage{hyperref} %for referencing
+%hidelinks removes red and green boxes
+\usepackage{varwidth} %for some nice width control
+\usepackage{mdframed} %for framed environments
+\usepackage{mathrsfs} %more math fonts
+\usepackage{xcolor} %THE colour package
+\usepackage{setspace}
+\usepackage{multirow,array}
+\usepackage{caption}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage[numbers, square]{natbib}
+\usepackage{titlecaps}
+%\usepackage[paper=a3paper]{geometry}
+\usepackage{tabularx}
+\usepackage{cleveref}
+%attempting to capitalize citations
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{xstring}
+\usepackage{nameref}
+\usepackage{amsthm}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{booktabs} % Include in preamble
+%Here are the various packages I use. Some may be duplicated. 
+
+
+
+
+
+
+%Not sure what these do, but they get the job done%
+%\usepackage[notes,backend=biber]{biblatex-chicago}
+%\usepackage[authordate-trad,backend=biber]{biblatex-chicago}
+\MakeOuterQuote{"}
+%some colours
+\definecolor{firebrick}{RGB}{178,34,34}
+\definecolor{teal}{RGB}{0,128,128}
+\definecolor{indigo}{RGB}{75,0,130}
+\definecolor{darkblue}{rgb}{0.0,0.0,.7}
+\definecolor{darkred}{rgb}{0.6,0.0,0.0}
+\definecolor{lightgrey}{RGB}{220, 220, 220}
+\definecolor{darkgrey}{HTML}{878787}
+\definecolor{forest}{HTML}{004a2f}
+\definecolor{dirt}{HTML}{5d4728}
+\definecolor{newblue}{HTML}{004fd9}
+\definecolor{paleyellow}{HTML}{FFFFD3}
+\renewcommand{\thesection}{}  % Remove numbering from \section
+\renewcommand{\thesubsection}{}  % Remove numbering from \subsection
+\renewcommand{\thesubsubsection}{} 
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\SetMathAlphabet{\mathbx}{bold}{U}{BOONDOX-ds}{b}{n}
+\DeclareMathAlphabet{\mathbbx} {U}{BOONDOX-ds}{b}{n}
+\doublespacing
+%\usepackageA{hyphenat}
+\DeclareCaptionLabelFormat{blank}{}
+\let\cleardoublepage\relax
+%Not sure what these do, but they get the job done%
+
+
+
+
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{\fill}
+
+    \textsc{\Huge Testing The Effects of Initial Exclusion from the Labor Market}\\[0.2em]
+
+	\textbf{\textsc{\LARGE {\color{darkred}Noah Dixon} }}
+	
+	\vspace*{\fill}
+
+\end{titlepage}
+
+%\title
+%\name
+%\data
+%\maketitle
+%\thispagestyle{empty}
+\newpage
+\UseRawInputEncoding
+
+%defining Chicago as purely capitalized
+\newcommand{\capitalizeTitle}[1]{%
+    \StrSubstitute{#1}{ }{~}[\title]%
+    \expandafter\capitalizetitle\expandafter{\title}%
+}
+
+\newcommand{\capitalizetitle}[1]{%
+    \expandafter\StrSubstitute\expandafter{#1}{~}{ }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ a }{ A }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ an }{ An }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ and }{ And }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ as }{ As }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ at }{ At }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ but }{ But }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ by }{ By }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ for }{ For }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ from }{ From }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ in }{ In }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ into }{ Into }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ near }{ Near }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ of }{ Of }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ on }{ On }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ onto }{ Onto }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ or }{ Or }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ the }{ The }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ to }{ To }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ under }{ Under }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ upon }{ Upon }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ with }{ With }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ within }{ Within }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ without }{ Without }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ and }{ And }[\Title]%
+    \expandafter\MakeUppercase\expandafter{\Title}%
+}
+
+\newcommand{\zz}{\mathbx Z}   %blackboard bold Z
+\newcommand{\qq}{\mathbx Q}   %blackboard bold Q
+\newcommand{\ff}{\mathbx F}   %blackboard bold F
+\newcommand{\rr}{\mathbx R}   %blackboard bold R
+\newcommand{\nn}{\mathbx N}   %blackboard bold N
+\newcommand{\cc}{\mathbx C}   %blackboard bold C
+\newcommand{\dd}{\mathsf D}   
+\newcommand{\id}{\operatorname{id}} %for identity map
+\newcommand{\im}{\operatorname{im}} %for image of a function
+\newcommand{\dom}{\operatorname{dom}} %for domain of a function
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert} %for absolute value
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} %for norm
+\newcommand{\modar}[1]{\operatorname{mod}{#1}} %for modular arithmetic
+\newcommand{\set}[1]{\left\{#1\right\}} %for set
+\newcommand{\setp}[2]{\left\{#1\ :\ #2\right\}} %for set with a property
+\newcommand{\lag}{\mathcal{L}}
+
+\renewcommand\thepage{}
+
+%Re-defined notations
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+%----------------------------------------------
+%Theorem, Lemma, Example, Definition etc. environments
+
+%By default, the text in these environments are italicised
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{proposition}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+\theoremstyle{lemma}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{corollary}
+\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition} %makes text non-italicized
+\theoremstyle{example}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{conclusion}
+\newtheorem{conclusion}[theorem]{Conclusion}
+
+
+
+\section{Research Proposal}
+
+\noindent\textbf{**\emph{Note}**}
+I will not pursue the first idea or third idea, at least for my final project. Since we discussed the Roy Model in class, I was curious to get feedback on this idea. I will choose between this idea or the second idea, and I will conduct the literature review and empirical design by the next deadline. Thanks!!
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Question:}
+Does prior exclusion from the labor market generate persistent deviations from the Roy Model, particularly in the nascent stages of labor market formation, and can these effects be adequately quantified, empirically? 
+
+\noindent\rule{\linewidth}{0.4pt}
+
+
+\noindent\textbf{Motivation:}
+The Roy Model is widely used in labor economics. However, this model does not account for initial, institutionally-imposed exclusion from the market, and it is likely that there are rippling effects which persist long after equality is imposed, which \emph{causes} individuals to violate their comparative advantage, a cognitive bias which manifests itself as the labor market transitions into a \enquote{stationary} equilibrium. These effects can be extended to a dynamic Roy Model. Quantifying this cognitive bias, in the simplest form (i.e., via a lab experiment) gives us an imprecise estimate of the impact of a \enquote{transitory} Roy Model. Subsequently, we can test this, quasi-experimentally/structurally.
+
+
+
+\newpage
+
+\section{Methodology}
+
+\noindent\textbf{Lab Experiment 1:} 
+We can first test this with a series of lab experiments. The first game that we can utilize is a simple \enquote{labor sorting} game, in which participants decide how to select into labor options, in each period. The outcomes are fundamentally probabilistic: $p = .25$ you make $\$2.60$ in sector A, $p=.5$ you make $\$1.20$ in sector B, and $p = 1$ you make $\$.50$ in sector C. Additionally, at the beginning of the game, participants are randomly assigned a heterogeneous outcome\footnote{This must be evenly dispersed, within each treatment and control substratum, to ensure that oversaturation does not occur, at least mechanically (barring the treatment group in sector B).}: $+.05$ for sector A, $+.10$ for sector B, and $+.20$ for sector C. Note that outcomes are assigned such that,
+\[
+\mathbb{E}[X_t(j_i)] > \mathbb{E}[X_t(j')], \forall j' \neq j_i
+\]
+where $X_t(j_i)$ represents the stochastic payoff from the sector choice at time $t$ under the comparative advantage $i \in \{A,B,C\}$ (i.e., the heterogeneous treatment assignment). \textbf{In practice, the numbers should be empirically derived, from labor data itself.}
+%In each period, if more than $40\%$ of individuals select into any sector, earnings are reduced by $50\%$, reflecting a market dynamic. The expected payoff, under all options, is structured such that individuals will gain from selecting into the correct sector. 
+
+%The total number of rounds, $60$, extrapolates to 275, simulating the U.S. labor market from 1750-2050. Participants are randomly and evenly distributed among the treatment and control group. For the control group, participants are able to choose whatever option they want, in any time period. In the control group, for the first $23$ rounds (and mirroring the labor market from 1750 to 1865), the treatment group is unable to participate in the proxy labor market. For the next $21$ rounds (and mirroring the labor market from 1860 to 1964), the treatment group is allowed to participate in the labor market, but are only able to select sector C. For the remaining $16$ rounds, the treatment group can select into any sector they want. The games themselves are framed abstractly and \emph{not} in terms of any exact time period. 
+
+The total number of rounds, $60$, should parallel \enquote{classical} stages of the labor market. 
+Participants are randomly and evenly distributed among the treatment and control group. For the control group, participants are able to choose whatever option they want, in any time period. In the control group, for the first $20$ rounds, the treatment group is unable to participate in the proxy labor market. For the next $20$ rounds, the treatment group is allowed to participate in the labor market, but are only able to select sector C. For the remaining $20$ rounds, the treatment group can select into any sector they want. 
+
+Absent exclusion, selection in the final 20 rounds should mirror the efficient allocation predicted by comparative advantage. More specifically, if exclusion generates persistence, then we should observe systematic under-selection into higher-return sectors among the treatment group, even once restrictions are lifted. With a sufficiently large number of rounds, we expect this gap to eventually reverberate back to a \enquote{stationary} equilibrium (i.e., the baseline Roy Model or some dynamic manipulation of it). \emph{Obviously, the exact causal parameter needs to be defined more clearly.}
+
+The general idea, of evaluating such a simple outcome, is this: \emph{if} barriers to entry cause individuals to \textbf{\emph{not}} sort according to their comparative advantage, under the simplest circumstances, this result should be even more pronounced under capital accumulation and complicated wealth dynamics.
+
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Lab Experiment 2:} 
+
+A second experiment can test these effects under capital accumulation. This experimental design is the exactly the same as the first experiment, but allows participants to invest a portion of their winnings into a \enquote{capital accumulation fund.} The exact layout of the experiment should follow a similar paradigm as that listed above. 
+
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Lab Experiment 3:} 
+
+A third experiment could test these effects using a multi-armed bandit experiment. The idea is similar to above, but with a slight deviation: there are \emph{no} heterogeneous effects, but three sectors, $i \in \{A, B, C\}$ that an individual can choose from. Each sector corresponds to a stochastic payoff distribution:
+\begin{enumerate}
+\item $A \sim \mathcal{N}(3,1)$.
+\item $B \sim \mathcal{N}(2,1)$.
+\item $C \sim \mathcal{N}(1,1)$.
+\end{enumerate}
+Participant's payoffs, in each round, correspond to their draw. Clearly,
+\[
+\mathbb{E}[A] >\mathbb{E}[B] >\mathbb{E}[C] \implies A \succ B \succ C.
+\]
+The number of rounds -- as well as the initial exclusion -- parallels that shown in \enquote{Lab Experiment 1.}
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Lab Experiment 4:} 
+
+
+To parallel a labor market, there should be a game that includes market interactions. For instance, a simple bidding game could suffice. This needs careful thought to execute. 
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Quasi-experimental Design:} 
+This is \enquote{Phase 2} and dependent on \enquote{Phase 1.}
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\noindent\textbf{Theoretical Impetus and Identification:} 
+The structural model being tested is both a static Roy Model and a dynamic Roy Model. 
+
+
+
+%\newpage
+%\bibliographystyle{chicago}
+%\bibliography{BEERthesisREAL.bib}
+%\addcontentsline{toc}{section}{References}
+\end{document}
+
