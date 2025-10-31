@@ -1,0 +1,330 @@
+\documentclass[17pt, letter]{extarticle}
+\usepackage[top=0.75in, bottom=1.5in, left=1in, right=1in]{geometry} 
+
+
+%Here are the various packages I use. Some may be duplicated. 
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\usepackage{amsmath,amsthm,amssymb} % math package
+\usepackage{mathtools} %to beef up the above package, more math!
+\usepackage{tikz} %for drawing 
+\usepackage{graphicx} %for including graphics
+\usepackage{fancybox} %for some nice formatting options
+\usepackage[hidelinks]{hyperref} %for referencing
+%hidelinks removes red and green boxes
+\usepackage{varwidth} %for some nice width control
+\usepackage{mdframed} %for framed environments
+\usepackage{mathrsfs} %more math fonts
+\usepackage{xcolor} %color package
+\usepackage{setspace}
+\usepackage{multirow,array}
+\usepackage{caption}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage[numbers, square]{natbib}
+\usepackage{titlecaps}
+%\usepackage[paper=a3paper]{geometry}
+\usepackage{tabularx}
+\usepackage{cleveref}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{xstring}
+\usepackage{nameref}
+\usepackage{amsthm}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{booktabs} %include in preamble
+%Here are the various packages I use. Some may be duplicated. 
+
+
+
+
+
+
+%Define colors and symbols%
+%\usepackage[notes,backend=biber]{biblatex-chicago}
+%\usepackage[authordate-trad,backend=biber]{biblatex-chicago}
+\MakeOuterQuote{"}
+%some colours
+\definecolor{firebrick}{RGB}{178,34,34}
+\definecolor{teal}{RGB}{0,128,128}
+\definecolor{indigo}{RGB}{75,0,130}
+\definecolor{darkblue}{rgb}{0.0,0.0,.7}
+\definecolor{darkred}{rgb}{0.6,0.0,0.0}
+\definecolor{lightgrey}{RGB}{220, 220, 220}
+\definecolor{darkgrey}{HTML}{878787}
+\definecolor{forest}{HTML}{004a2f}
+\definecolor{dirt}{HTML}{5d4728}
+\definecolor{newblue}{HTML}{004fd9}
+\definecolor{paleyellow}{HTML}{FFFFD3}
+\renewcommand{\thesection}{}  % Remove numbering from \section
+\renewcommand{\thesubsection}{}  % Remove numbering from \subsection
+\renewcommand{\thesubsubsection}{} 
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\SetMathAlphabet{\mathbx}{bold}{U}{BOONDOX-ds}{b}{n}
+\DeclareMathAlphabet{\mathbbx} {U}{BOONDOX-ds}{b}{n}
+%\doublespacing
+%\usepackageA{hyphenat}
+\DeclareCaptionLabelFormat{blank}{}
+\let\cleardoublepage\relax
+%Define colors and symbols%
+
+
+
+
+
+
+
+\begin{document}
+\setlength{\parindent}{0pt}  % No indent
+\setlength{\parskip}{1.5em}  % Presentation / easy readability
+\singlespacing
+
+\thispagestyle{empty}
+
+
+\title{How to Generalize?}
+\author{
+Noah Dixon\thanks{Texas A\&M University; noah.dixon@tamu.edu}
+\and
+Hanbai Wang\thanks{Texas A\&M University; hanbai\_wang@tamu.edu}
+}
+\maketitle
+%\thispagestyle{empty}
+
+\subsection*{Abstract} %We propose a resampling-based algorithm that uses bootstrapping to align the covariate distribution of the initial population with that of the target population.
+
+\bigskip
+
+KEYWORDS:
+
+
+JEL Classification: 
+
+%\title
+%\name
+%\data
+%\maketitle
+%\thispagestyle{empty}
+\newpage
+\UseRawInputEncoding
+
+%defining Chicago as purely capitalized
+\newcommand{\capitalizeTitle}[1]{%
+    \StrSubstitute{#1}{ }{~}[\title]%
+    \expandafter\capitalizetitle\expandafter{\title}%
+}
+
+\newcommand{\capitalizetitle}[1]{%
+    \expandafter\StrSubstitute\expandafter{#1}{~}{ }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ a }{ A }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ an }{ An }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ and }{ And }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ as }{ As }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ at }{ At }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ but }{ But }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ by }{ By }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ for }{ For }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ from }{ From }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ in }{ In }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ into }{ Into }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ near }{ Near }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ of }{ Of }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ on }{ On }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ onto }{ Onto }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ or }{ Or }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ the }{ The }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ to }{ To }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ under }{ Under }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ upon }{ Upon }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ with }{ With }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ within }{ Within }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ without }{ Without }[\Title]%
+    \expandafter\StrSubstitute\expandafter{\Title}{ and }{ And }[\Title]%
+    \expandafter\MakeUppercase\expandafter{\Title}%
+}
+
+\newcommand{\zz}{\mathbx Z}   %blackboard bold Z
+\newcommand{\qq}{\mathbx Q}   %blackboard bold Q
+\newcommand{\ff}{\mathbx F}   %blackboard bold F
+\newcommand{\rr}{\mathbx R}   %blackboard bold R
+\newcommand{\nn}{\mathbx N}   %blackboard bold N
+\newcommand{\cc}{\mathbx C}   %blackboard bold C
+\newcommand{\dd}{\mathsf D}   
+\newcommand{\id}{\operatorname{id}} %for identity map
+\newcommand{\im}{\operatorname{im}} %for image of a function
+\newcommand{\dom}{\operatorname{dom}} %for domain of a function
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert} %for absolute value
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} %for norm
+\newcommand{\modar}[1]{\operatorname{mod}{#1}} %for modular arithmetic
+\newcommand{\set}[1]{\left\{#1\right\}} %for set
+\newcommand{\setp}[2]{\left\{#1\ :\ #2\right\}} %for set with a property
+\newcommand{\lag}{\mathcal{L}}
+
+\renewcommand\thepage{}
+
+%Re-defined notations
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+%----------------------------------------------
+%Theorem, Lemma, Example, Definition etc. environments
+
+%By default, the text in these environments are italicised
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{proposition}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%\newtheorem{theorem}{Theorem}
+\theoremstyle{lemma}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{corollary}
+\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\theoremstyle{definition} %makes text non-italicized
+\theoremstyle{example}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{conclusion}
+\newtheorem{conclusion}[theorem]{Conclusion}
+
+
+\tableofcontents
+\newpage
+
+
+\section{Introduction}
+
+There are many reasons to believe that economics is particularly unique in its \enquote{generalization} dilemma. In medicine, for instance, it is widely believed that treatment effects occur on a cellular level. Consequently, it is valid to assume that the results of those studies can be extrapolated to a larger population (although external validity is debated, even in medicine [Ling et al., 2023]). In economics, however, treatment effects are \emph{contagious,} in the sense that they are heavily dependent on regional-level covariates, institutional environments, and interactions among individuals. As a result, causal effects estimated in one environment may not transport cleanly to another environment. 
+
+Now, suppose, as a researcher, we are interested in estimating the effects of cash transfers on health outcomes in a developing country. Naturally, we sample a multitude of villages, and likely utilize a staggered treatment approach. The average treatment effect (ATE), in this instance, is identified by experimental design, with standard errors clustered at the village level. Typically, when we cluster, we have this basic conceptualization in mind. However, more generally, there may be additional reasons to cluster, beyond precision. For instance, \emph{ex-ante}, we may care about identifying the population-level effects. Consequently, representative sampling -- which occurs by sampling an adequate number of clusters relative to the population -- is necessary to identify the population-level effects. Clustering, therefore, is not merely a correction for correlated outcomes -- it is also central to how we conceptualize the population to which our causal estimates generalize. 
+
+One issue with representative sampling is that the relevant population is theoretically unbounded. Consider the example above, where we aim to estimate the effects of cash transfers on health outcomes. Naturally, it seems intuitive to target a large, poor city, where a control group and treatment group are easily stratified. Yet, in many countries, the vast majority of the population lives within small, rural villages. Suppose we instead sample a single village (assuming a sufficiently large sample size and no ethical concerns from withholding treatment). In that case, the ATE is internally valid to that specific region. To improve generalizability, we might sample multiple villages throughout a region -- but even this may not capture the heterogeneity within a country. And, even if we could hypothetically sample each individual within the country, the question of generalization, across countries, is still unanswered. At each node, we must expand the relevant \enquote{population.}
+
+Intuitively, we can think of this dilemma as relating to the issue of \emph{scalability.} A practical solution is to \enquote{think smaller.} In this paper, we investigate exactly how the experimental results from the initial population should be \emph{sampled} to match the distribution of the target population. To do this, we require two things: (i) proper heterogeneity in the initial population, and (ii) sufficiently quantified data in the target population. Consequently, we propose an easy-to-implement algorithm for \enquote{precise sampling} from the initial population, to predict treatment effects in the target population. We run a series of experiments to validate our econometric techniques. 
+
+\section{Literature Review}
+There are four areas of literature that need to examined: (i) optimal experimental design, (ii) policy learning, (iii) transportability, and (iv) covariate resampling. \emph{I will need to expand each of these.}
+
+\subsection{Transportability}
+In an implicitly canonical study, Hotz, Imbens, and Mortimer (2004) digress into the econometrics of transportability by evaluating empirical evidence from job training programs. Pearl and Bareinboim (2011; 2014) describe the formal conditions under which the results from one environment can be \emph{transported} into another environment. \emph{Proving that our algorithm satisfies the \enquote{do-algebra} proposed in this canonical study is essential to showing its statistical efficiency.} Recently, Wang, Han, and Huang (2024) develop an ongoing-sampling framework that tracks representatives over time to keep online A/B test results externally valid when underlying user characteristics shift.
+ 
+
+
+\subsection{Covariate Resampling}
+Historically, propensity scores have been used to balance covariates \emph{within} sample (Rosenbaum \& Rubin, 1983). However, an increasingly important question is whether propensity scores can be used to balance covariates \emph{among} samples (Tipton 2013, Stuart et al. 2011, Dahabreh \& Hern\'an 2019). Adjaho and Christensen (2023) describe the conditions under which an individualized treatment policy -- like that proposed in Athey and Wager (2021) -- from one dataset (via an experiment or observational data) performs well when applied to a different population. Our method is robust to the methodology described in both of these studies. 
+
+
+
+
+\subsection{Optimal Experimental Design}
+
+There is an ongoing debate regarding optimal experiment design, with proposed approaches including framing the problem as a dynamic programming problem with Bayesian priors and cost constraints (Higbee, 2024), utilizing stratification trees to improve balance (Tabord-Meehan, 2022), and determining precisely when and how to randomize or rerandomize (Banerjee et al., 2020). Numerous studies have also examined how to optimally choose design parameters -- number of clusters, periods, sample sizes per period -- to maximize statistical efficiency (Liu \& Li, 2024; Watson et al, 2022). There is also the question of \emph{where} to implement a study, to maximize external validity (Gechter et al. 2024). Our method is not interested in optimal experimental design, but rather optimal data collection. That is to say, it is robust to all the methods listed above. 
+
+\subsection{Policy Learning}
+Athey and Wager (2021) derive an algorithm for selecting the optimal treatment rule, given a sufficiently large quantity of data. While this treatment rule can increase welfare when the cost of prescribing treatment is low (Athey, Keleher \& Spiess, 2024), in many instances, there are ethical concerns from withholding treatment from an arbitrary member of the population who could \emph{plausibly} benefit from treatment. Further, there may be institutional barriers limiting the efficacy of policy learning (Wang \& Yang, 2025). Additionally, there may be multiple objectives for policy makers to maximize (Rehill \& Biddle, 2025), thereby Finally, while policy-learning methods typically fall under reduced-form rule learning, there is an argument that structural counterparts should be viewed as a complements to these algorithmic processes -- not a substitute (Todd \& Wolpin, 2023).
+
+
+\newpage
+
+\section{Methodology}
+
+\subsection{Basic Framework}
+
+Let $p, p' \in \mathcal{P}$ represent two arbitrary populations, where $\mathcal{P}$ represents the set of all possible populations we could sample from. Let $X \in \rr^{n \times k}$ represent the covariates collected in the experiment conducted in $p$ and let $X' \in \rr^{n \times k}$ be covariates collected in $p'$, where $n$ is the number of observations and $k$ is the number of covariates. Assume that $X' \subseteq X$.\footnote{In other words, assume that $X$ is at least as large as $X'$. While $X$ is collect within the experiment, $X'$ is collected externally (e.g., via census data, survey data, etc.).} For each $i \in p, p'$, let $D_i \in \{0,1\}$ denote treatment status and let $Y_i^d$ denote the potential outcome under treatment state $d \in \{0,1\}$. Assume that an experiment has already been conducted in $p$ but not $p'$, such that $\tau_p := \mathbb{E}_p[Y^1-Y^0] = \int (Y^1 - Y^0) dF_p(X,Y^1,Y^0)$ is identified, where proper randomization ensures internal validity. Let $\tau_{p'} := \mathbb{E}_{p'}[Y^1-Y^0] = \int (Y^1-Y^0) dF_{p'}(X,Y^1,Y^0)$. While $\tau_p$ is observed, $\tau_{p'}$ is not. The goal of this paper is to determine: (i) how to sample from $F_{p}(X,Y^1,Y^0)$ -- using the information collected in $X'$ -- to reliably construct $F_{p'}(X,Y^1,Y^0)$, and (ii) the assumptions underlying the process in (i). Consequently, under reasonably assumptions, we can reliably estimate $\hat{\tau}_{p'}$ -- using a plethora of tangential methods -- without running a separate experiment. 
+
+
+\subsection{Illustrative Example}
+\begin{table}[H]
+\label{Table 1}
+\centering
+\caption{$\star\star$Replace with Progresa Data$\star\star$}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Category} & \textbf{$p'$} & \textbf{$p$} \\
+\midrule
+Ages 20--40  & 60\% & 40\% \\
+Ages 40--60  & 20\% & 30\% \\
+Ages 60--100 & 20\% & 30\% \\
+Female       & 30\% & 50\% \\
+Male         & 50\% & 50\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table 1 represents the delicacy of the underlying sampling distributions. If we sample \enquote{at random} from $p$, the resulting sample will be unrepresentative of $p'$ and statistically inefficient. 
+
+
+\subsection{Algorithmic Outline}
+Our method includes the following stages: 
+\begin{enumerate}
+\item Estimate a target distribution, $G_{p'}$, over the covariates $X'$ in population $p'$.
+\item Draw $b = 1, .... , \mathcal{B}$ bootstrap samples from $G_{p'}$.
+\item For each $b$, we use \enquote{nearest neighbor} to match observations to the nearest covariate profile in $X$. One issue here is ensuring that there is covariate overlap. 
+\item Iterate this procedure $s = 1, ... , \mathcal{S}$ times to obtain a stable, Monte-Carlo estimate of $\hat{\tau}_{p'}$. For sufficiently large $n$ (observations constituting $X$ and $X'$), it is also possible to iterate an algorithmic policy rule (Athey \& Wager, 2021). In particular, this method is adventitious because it allows complete research flexibility in the experimental design and policy evaluation phase. 
+\end{enumerate}
+
+\textbf{One question is how to accurately sample when the large sample contains clusters. This is often neglected in the machine-learning literature, because variance and bias are equally weighted.}
+
+\subsection{Asymptotic Properties}
+
+
+\newpage
+\section{Data}
+
+To test our algorithmic process, we will use the Progresa data set. \emph{I have submitted a request for this data set.} As shown in Skoufias et al. (2001), this data set contains rich household measures on 24,000 households from 506 villages throughout Mexico. Intriguingly, we could use this data set to attempt to predict the CATE in other places, \emph{particularly those in which the effects of cash transfers were negligible.}
+
+
+%\subsection{Identification Strategy}
+
+
+\newpage
+
+\section{Results}
+
+\subsection{Estimation}
+
+\subsection{Robustness}
+
+
+\newpage
+
+\section{Conclusion}
+
+\subsection{Limitations}
+
+\subsection{Extensions}
+
+\newpage
+
+\section{Sources}
+
+%\bibliographystyle{chicago}
+%\bibliography{BEERthesisREAL.bib}
+
+\newpage
+
+\section{Appendix}
+
+
+
+
+
+
+%\newpage
+%\bibliographystyle{chicago}
+%\bibliography{BEERthesisREAL.bib}
+%\addcontentsline{toc}{section}{References}
+\end{document}
