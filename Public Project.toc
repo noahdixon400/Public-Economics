@@ -1,0 +1,23 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {}Introduction}{}{section.1}%
+\contentsline {section}{\numberline {}Literature Review}{}{section.2}%
+\contentsline {subsection}{\numberline {}Transportability}{}{subsection.2.1}%
+\contentsline {subsection}{\numberline {}Covariate Resampling}{}{subsection.2.2}%
+\contentsline {subsection}{\numberline {}Optimal Experimental Design}{}{subsection.2.3}%
+\contentsline {subsection}{\numberline {}Policy Learning}{}{subsection.2.4}%
+\contentsline {section}{\numberline {}Methodology}{}{section.3}%
+\contentsline {subsection}{\numberline {}Basic Framework}{}{subsection.3.1}%
+\contentsline {subsection}{\numberline {}Illustrative Example}{}{subsection.3.2}%
+\contentsline {subsection}{\numberline {}Algorithmic Outline}{}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {}Nearest Neighbor Matching}{}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {}Monte Carlo Simulations}{}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {}Asymptotic Properties}{}{subsection.3.4}%
+\contentsline {section}{\numberline {}Data}{}{section.4}%
+\contentsline {section}{\numberline {}Results}{}{section.5}%
+\contentsline {subsection}{\numberline {}Estimation}{}{subsection.5.1}%
+\contentsline {subsection}{\numberline {}Robustness}{}{subsection.5.2}%
+\contentsline {section}{\numberline {}Conclusion}{}{section.6}%
+\contentsline {subsection}{\numberline {}Limitations}{}{subsection.6.1}%
+\contentsline {subsection}{\numberline {}Extensions}{}{subsection.6.2}%
+\contentsline {section}{\numberline {}Sources}{}{section.7}%
+\contentsline {section}{\numberline {}Appendix}{}{section.8}%

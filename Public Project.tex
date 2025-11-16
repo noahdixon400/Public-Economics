@@ -245,6 +245,8 @@ Athey and Wager (2021) derive an algorithm for selecting the optimal treatment r
 
 \textbf{I am struggling to figure out how to obtain the Progresa data set. The website to register is not working and the email does not work either. I tried to contact the agency within Mexico, but the inbox was full. Any tips would be appreciated! For the final version this semester, my goal is to generate the code and run Monte Carlo simulations.}
 
+\noindent \textbf{[JLG: You can stop by my office next Friday and we can try to figure it out.]} 
+
 \section*{Empirical Overview}
 
 \textbf{In response to previous comments:}
@@ -252,6 +254,8 @@ Athey and Wager (2021) derive an algorithm for selecting the optimal treatment r
 Suppose we have two populations, one of which is experimented on and the other of which is not experimented on. Also, assume that a subset of the covariates collected in the experiment population (age, gender, income, race, etc.) are known in the non-experimented population (via census data, survey, etc.). The idea is to use the results of the experimented population to infer the treatment effect in the non-experimented population. Fundamentally, the issue is that the underlying \emph{distribution} in the non-experimented population is different than the underlying distribution in the experimented population. Prior approaches in the literature have attempted to solve this using propensity scores. This method breaks down, however, especially in circumstances where support overlap is weak. Our algorithm constructs a \enquote{synthetic sample} that adjusts for these distributional differences. Moreover, under a certain set of assumptions, our algorithm may have \emph{economic meaning.} That is to say, after adjusting for distributional differences, we can ascertain the causal impact in the non-experimented population. Further, we can conduct econometric analysis, independent of the experimented population, implying that the causal impact of treatment in the experimented population and the non-experimented population can differ. This is particularly interesting to researchers thinking about \enquote{scalability.}
 
 The Progresa data set is simply a tool that allows us to test the validity of our algorithm, specifically because there are a large amount of clusters and we already know the outcome. For instance, in a certain cluster (which can be as large or small as you want it to be), we can \enquote{pretend} like it was non-experimented. Then, we use the results from an experimented population to predict the ATE (using the algorithm described below) in the non-experimented population, using covariates that a researcher would likely have had access to ex-ante. Since we already know the ATE in the non-experimented population, it allows us to test how accurate our algorithm’s predictions were.
+
+\noindent \textbf{[JLG: Seems fine for this stage.]} 
 
 \subsection{Basic Framework}
 
